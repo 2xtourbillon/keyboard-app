@@ -23,7 +23,7 @@ varRow = 1
 varColumn = 0
 
 # left arrow key
-def leftKet(event):
+def leftKey(event):
     if curBut == [-1, -1]: #no key has been clicks
         curBut[:] = [0,0]
         buttonL[0][0].configure(highlightbackground='red')
@@ -34,7 +34,7 @@ def leftKet(event):
     else:
         buttonL[curBut[0]][curBut[1]].configure(highlightbackgroun='red')
         curBut[:] = [curBut[0], (curBut[1]-1)%11]
-        buttonL[curBut[0]][curBut[1]].configure(highlighbackground='red')
+        buttonL[curBut[0]][curBut[1]].configure(highlightbackground='red')
     buttonL[curBut[0]][curBut[1]].focus_set()
 
 # right arrow key
