@@ -24,9 +24,33 @@ varColumn = 0
 
 # left arrow key
 def leftKet(event):
-
+    if curBut == [-1, -1]: #no key has been clicks
+        curBut[:] = [0,0]
+        buttonL[0][0].configure(highlightbackground='red')
+    elif curBut[0] == 4:
+        buttonL[curBut[0]][curBut[1]].configure(highlightbackground='red')
+        curBut[:] = [0, 10]
+        buttonL[0][10].configure(highlightbackground='red')
+    else:
+        buttonL[curBut[0]][curBut[1]].configure(highlightbackgroun='red')
+        curBut[:] = [curBut[0], (curBut[1]-1)%11]
+        buttonL[curBut[0]][curBut[1]].configure(highlighbackground='red')
+    buttonL[curBut[0]][curBut[1]].focus_set()
 
 # right arrow key
+def rightKey(event):
+    if curBut == [-1, -1]: #no key has been clicks
+        curBut[:] = [0,0]
+        buttonL[0][0].configure(highlightbackground='red')
+    elif curBut[0] == 4:
+        buttonL[curBut[0]][curBut[1]].configure(highlightbackground='red')
+        curBut[:] = [0, 0]
+        buttonL[0][0].configure(highlightbackground='red')
+    else:
+        buttonL[curBut[0]][curBut[1]].configure(highlightbackgroun='red')
+        curBut[:] = [curBut[0], (curBut[1]+1)%11]
+        buttonL[curBut[0]][curBut[1]].configure(highlighbackground='red')
+    buttonL[curBut[0]][curBut[1]].focus_set()
 
 # up arrow key
 
@@ -83,7 +107,7 @@ for button in keys:
         varRow += 1
         buttonL.append([])
 
-
+# Binding arrow keys
 Keyboard_App.bind('<Left>', leftKey)
 Keyboard_App.bind('<Right>', rightKey)
 Keyboard_App.bind('<Up>', upKey)
