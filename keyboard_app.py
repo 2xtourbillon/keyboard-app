@@ -22,6 +22,15 @@ entry.grid(row=0, columnspan=15)
 varRow = 1
 varColumn = 0
 
+# left arrow key
+def leftKet(event):
+
+
+# right arrow key
+
+# up arrow key
+
+# down arrow key
 
 def select(value, x, y):
     if curBut != [-1, -1]: # not equal to intial val
@@ -74,6 +83,11 @@ for button in keys:
         varRow += 1
         buttonL.append([])
 
+
+Keyboard_App.bind('<Left>', leftKey)
+Keyboard_App.bind('<Right>', rightKey)
+Keyboard_App.bind('<Up>', upKey)
+Keyboard_App.bind('<Down>', downKey)
 
 """
 window
