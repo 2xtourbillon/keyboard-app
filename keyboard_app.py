@@ -53,8 +53,43 @@ def rightKey(event):
     buttonL[curBut[0]][curBut[1]].focus_set()
 
 # up arrow key
+def upKey(event):
+    if curBut == [-1, -1]: #no key has been clicks
+        curBut[:] = [0,0]
+        buttonL[0][0].configure(highlightbackground='red')
+    elif curBut[0] == 0: 
+        buttonL[curBut[0]][curBut[1]].configure(highlightbackgroun='red')
+        curBut[:] = [(curBut[0]-1)%5, 0]
+        buttonL[curBut[0]][curBut[1]].configure(highlighbackground='red')
+    elif curBut[0] == 4:
+        buttonL[curBut[0]][curBut[1]].configure(highlightbackground='red')
+        curBut[:] = [(curBut[0]-1)%5, 5]
+        buttonL[curBut[0]][curBut[1]].configure(highlightbackground='red')
+    else:
+        buttonL[curBut[0]][curBut[1]].configure(highlightbackground='red')
+        curBut[:] = [(curBut[0]-1)%5, curBut[1]]
+        buttonL[curBut[0]][curBut[1]].configure(highlightbackground='red')
+    buttonL[curBut[0]][curBut[1]].focus_set()
 
 # down arrow key
+def downKey(event):
+    if curBut == [-1, -1]: #no key has been clicks
+        curBut[:] = [0,0]
+        buttonL[0][0].configure(highlightbackground='red')
+    elif curBut[0] == 3: 
+        buttonL[curBut[0]][curBut[1]].configure(highlightbackgroun='red')
+        curBut[:] = [(curBut[0]+1)%5, 0]
+        buttonL[curBut[0]][curBut[1]%11].configure(highlighbackground='red')
+    elif curBut[0] == 4:
+        buttonL[curBut[0]][curBut[1]].configure(highlightbackground='red')
+        curBut[:] = [(curBut[0]-1)%5, 5]
+        buttonL[curBut[0]][curBut[1]%11].configure(highlightbackground='red')
+    else:
+        buttonL[curBut[0]][curBut[1]].configure(highlightbackground='red')
+        curBut[:] = [(curBut[0]+1)%5, curBut[1]]
+        buttonL[curBut[0]][curBut[1]].configure(highlightbackground='red')
+    buttonL[curBut[0]][curBut[1]].focus_set()
+
 
 def select(value, x, y):
     if curBut != [-1, -1]: # not equal to intial val
